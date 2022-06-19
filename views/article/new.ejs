@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<style>
+    .headform {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .headform input[type=textearea]{
+        width: 35vw;
+    }
+    input[type="file"] {
+    display: none;
+    }
+    label {
+        margin-bottom: 10px;
+        padding: 20px 10px;
+        width: max-content;
+        border-radius: 10px;
+        background-color: #06aa48;
+        color: #FFF;
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+        font-size: 1.2rem;
+        font-family: 'Raleway', sans-serif;
+        cursor: pointer;
+    }
+    input[type=text] {
+        width: 40vw;
+        font-size: 2rem;
+    }
+    .btn-create {
+        margin-bottom: 10px;
+        padding: 20px 10px;
+        width: max-content;
+        border-radius: 10px;
+        background-color: #06aa48;
+        color: #FFF;
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+        font-size: 0.8rem;
+        font-family: 'Raleway', sans-serif;
+        cursor: pointer;
+        border: none;
+    }
+</style>
+<body>
+    <%- include("../partials/navbarAuthor")  %> 
+    <form method="POST" action="/article/new" enctype="multipart/form-data">
+        <div class="headform">
+            <input type="hidden" name="authorId" value="<%= author.id  %> "><br>
+            <input type="text" name="title" placeholder="Defina o titulo do Artigo"><br>
+            <textarea name="synthesis" id="synthesis" cols="30" rows="3" placeholder="Resumo da noticia"></textarea>
+            <label for="file">Enviar arquivo</label>
+            <input type="file" id="file" name="file" accept="image/*">
+        </div>
+
+        <textarea name="article" id="article" cols="90" rows="10"></textarea>
+        <select name="categoryId">
+            <% categories.forEach((category)=>{ %>
+                <option value="<%= category.id %>"><%= category.title  %></option>
+           <% }) %> 
+        </select>
+        <button class="btn-create">Criar</button>
+    </form>
+</body>
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+  tinymce.init({
+  language: 'pt_BR',
+  selector: '#article',  // change this value according to your HTML
+  plugins: 'advlist link image lists'
+});
+
+</script>
+<script src="script.js"></script>
+</html>

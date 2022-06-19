@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+    </style>
+    <title>Globo Esporte</title>
+</head>
+<body>
+    <%- include("partials/navbar")%> 
+        <div class="menu" id="menulateral">
+            <div class="menuitens">
+                <ul>
+                    <li>
+                        Futebol Nacional
+                    </li>
+                    <hr>
+                    <li>
+                        Futebol Internacional
+                    </li>
+                    <hr>
+                </ul>
+            </div>
+            <div class="closemenu">
+    
+            </div>
+        </div>
+    <section class="bestNews">
+        <img src="./soccer.jpg" alt="">
+    </section>
+
+    <section class="testegrid">
+        <div class="ladoa">
+            <% if(articles != undefined){ articles.forEach(article => { %>
+                <div class="cardNews">
+                    <img src="/<%= article.photo  %>" alt="" srcset="">
+                    <div class="textNews">
+                       <a href="/read/<%= article.slug  %>"><h1><%= article.title  %></h1></a>
+                       <hr>
+                        <div><%= article.synthesis  %></div>
+                        <div>
+                        </div>
+                        <div><hr>
+                            <span>
+                            Em <%= article.category.title  %> <br>
+                            Por: <%= article.author.name  %> 
+                            </span>
+                        </div>
+                     </div>
+                </div>
+           <% })} %> 
+
+        </div>
+        <div class="ladob">
+            <div class="cardInfo">
+                <div>Rodada 12</div>
+                <table>
+                    <thead>
+                        <tr class="tabelaClassficacao">
+                            <th>
+                                Classificação
+                            </th>
+                            <th>
+                                Pontos
+                            </th>
+                            <th>
+                                Jogos
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabelaClassficacao">
+                            <td>
+                                1º Athletico Paranaense
+                            </td>
+                            <td>
+                                24
+                            </td>
+                            <td>
+                                8
+                            </td>
+                        </tr>
+                        <tr class="tabelaClassficacao">
+                            <td>
+                                2º Palmeiras
+                            </td>
+                            <td>
+                                21
+                            </td>
+                            <td>
+                                8
+                            </td>
+                        </tr>
+                        <tr class="tabelaClassficacao">
+                            <td>
+                                3º Santos
+                            </td>
+                            <td>
+                                21
+                            </td>
+                            <td>
+                                8
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="cardInfo">
+                    <h1>Agenda do dia</h1>
+                    <p>São Paulo vs Palmeiras</p>
+                    <hr>
+                    <p>Santos vs Corinthiasn</p>
+                    <hr>
+                    <p>Real Madrid vs Barcelona</p>
+                    <hr>
+            </div>
+        </div>
+    </section>
+    <%- include("partials/footer")%>
+</body>
+<script src="script.js"></script>
+</html>
