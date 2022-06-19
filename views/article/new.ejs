@@ -18,7 +18,7 @@
         width: 35vw;
     }
     input[type="file"] {
-    display: none;
+        font-size: 3px;
     }
     label {
         margin-bottom: 10px;
@@ -63,8 +63,8 @@
             <input type="hidden" name="authorId" value="<%= author.id  %> "><br>
             <input type="text" name="title" placeholder="Defina o titulo do Artigo"><br>
             <textarea name="synthesis" id="synthesis" cols="30" rows="3" placeholder="Resumo da noticia"></textarea>
-            <label for="file">Enviar arquivo</label>
-            <input type="file" id="file" name="file" accept="image/*">
+            <label for="filename">Enviar arquivo</label>
+            <input type="file" id="filename" name="filename" accept="image/*">
         </div>
 
         <textarea name="article" id="article" cols="90" rows="10"></textarea>

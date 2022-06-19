@@ -30,7 +30,17 @@
             </div>
         </div>
     <section class="bestNews">
-        <img src="./soccer.jpg" alt="">
+        <div class="primaryNews"  style="background: url(<%= articles[0].photo  %>);background-size: cover;">
+            <h3><%= articles[0].title  %></h3>
+        </div>
+        <div class="secundaryNews">
+            <div style="background: url(<%= articles[1].photo  %>);background-size: cover;">  
+                <p><%= articles[0].title  %></p>
+            </div>
+            <div style="background: url(<%= articles[2].photo  %>);background-size: cover;">  
+                <p><%= articles[2].title  %></p>
+            </div>
+        </div>
     </section>
 
     <section class="testegrid">

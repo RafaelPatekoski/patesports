@@ -37,7 +37,7 @@ module.exports = {
                 order: [
                 [ 'id','DESC']
      ],
-     limit: 3
+     limit: 7
     }).then(articles=>{
             req.articles = articles
             next()

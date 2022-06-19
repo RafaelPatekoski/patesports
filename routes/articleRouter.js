@@ -19,6 +19,6 @@ router.get("/",(req, res)=>{
     res.send("articles")
 })
 router.get("/new", authorController.authAuthor,articleController.getNewArticle)
-router.post("/new", upload.single("file"),articleController.postNewArticle)
+router.post("/new", upload.single("filename"),articleController.postNewArticle)
 
 module.exports = router
